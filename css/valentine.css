@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Courier New", monospace;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #ff4d6d;
+}
+
+/* Floating hearts background */
+.hearts::before {
+  content: "💖 💕 💗 💘 💝";
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  font-size: 60px;
+  opacity: 0.2;
+  animation: floatHearts 15s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120vh); }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 50px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+#valentineQuestion {
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+.answerButton {
+  padding: 14px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 12px;
+  border-radius: 30px;
+  border: none;
+  font-family: "Courier New", monospace;
+  transition: all 0.3s ease;
+}
+
+/* Yes button */
+.answerButton.yes {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+}
+
+.answerButton.yes:hover {
+  transform: scale(1.1);
+}
+
+/* No button */
+.answerButton.no {
+  background: #ffe3e1;
+  color: #ff4d6d;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.answerButton.no:hover {
+  background: #ffd1cf;
+}
+
+.cat-img {
+  margin-top: 20px;
+  height: 320px;
+  width: auto;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
