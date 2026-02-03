@@ -7,46 +7,51 @@
     <link rel="stylesheet" href="css/food.css" />
   </head>
   <body>
-    <div id="foodquestion">
-      <b>What food would you like to eat?</b>
-    </div>
+    <h1 id="foodquestion">What would you like to eat? 💕</h1>
 
     <div class="food-selection">
-      
-        
-      </div>
       <div class="food-item">
-        <img src="food/dog.jpeg" alt="dog" />
-        <label
-          ><input type="checkbox" name="food" value="hotdog" /> Biriyani</label
-        >
+        <img src="food/salad.jpeg" alt="Biriyani" />
+        <label>
+          <input type="checkbox" /> Biriyani
+        </label>
       </div>
+
+      <div class="food-item special">
+        <img src="food/steak.jpeg" alt="Me" />
+        <label>
+          <input type="checkbox" checked /> Me 💗
+        </label>
+      </div>
+
       <div class="food-item">
-        <img src="food/koreanfood.jpeg" alt="koreanfood" />
-        <label
-          ><input type="checkbox" name="food" value="Korean food" /> Me</label
-        >
+        <img src="food/ramen.jpeg" alt="Chats" />
+        <label>
+          <input type="checkbox" /> Chats
+        </label>
       </div>
-      <div class="food-item">
-        <img src="food/pasta.jpeg" alt="pasta" />
-        <label><input type="checkbox" name="food" value="pasta" /> Chats</label>
+
+      <div class="food-item special">
+        <img src="food/pizza.jpeg" alt="Me again" />
+        <label>
+          <input type="checkbox" checked /> Me 😌
+        </label>
       </div>
-      <div class="food-item">
-        <img src="food/pizza.jpeg" alt="pizza" />
-        <label><input type="checkbox" name="food" value="pizza" /> Me</label>
-      </div>
-      <div class="food-item">
-        <img src="food/pizza.jpeg" alt="pizza" />
-        <label><input type="checkbox" name="food" value="pizza" /> Chinese</label>
-      </div>
-      <div class="food-item">
-        <img src="food/pizza.jpeg" alt="pizza" />
-        <label><input type="checkbox" name="food" value="pizza" /> Me</label>
-      </div>
-      
-      
+    </div>
+
     <button class="button" onclick="location.href='dessert.html'">
-      Continue Hehe... 
+      Continue Hehe... 💘
     </button>
+
+    <script>
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      checkboxes.forEach(cb => {
+        cb.addEventListener('click', () => {
+          checkboxes.forEach(box => box.checked = false);
+          cb.checked = true;
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,40 +1,102 @@
 body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+  font-family: "Courier New", monospace;
+  background: linear-gradient(180deg, #fff0f6, #ffe3ec);
+  color: #ff6f91;
   text-align: center;
-  margin-top: 30px;
-  font-family: "Courier";
-  background-color: #fff5e4;
-  color: #ff9494;
+  overflow-x: hidden;
+  position: relative;
 }
+
+/* floating hearts */
+body::before {
+  content: "💗 💕 💖 💘 💞";
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  opacity: 0.15;
+  animation: floatHearts 12s linear infinite;
+}
+
+@keyframes floatHearts {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(120vh);
+  }
+}
+
 #foodquestion {
-  font-size: 50px;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #ff5c8a;
+  text-shadow: 2px 2px #ffd6e8;
+}
+
+.food-selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
   margin-bottom: 30px;
 }
+
 .food-item {
-  display: inline-block;
-  margin: 10px;
-  vertical-align: top;
-  color: #ff9494;
+  background: #fff7fb;
+  padding: 18px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(255, 148, 180, 0.25);
+  width: 220px;
+  transition: 0.3s;
 }
+
+.food-item:hover {
+  transform: scale(1.05);
+}
+
 .food-item img {
-  height: 200px;
-  width: 200px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
-  border: 5px solid #ff9494;
+  border: 4px solid #ffb3c6;
   object-fit: cover;
-  padding: 10px;
 }
+
 .food-item label {
   display: block;
+  margin-top: 12px;
+  font-size: 18px;
 }
+
+.special {
+  border: 3px dashed #ff8fab;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.3);
+  margin-right: 6px;
+}
+
 .button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 18px;
   cursor: pointer;
-  margin: 10px;
-  font-family: "courier";
-  margin-bottom: 20px;
-  background-color: #ffe3e1;
-  color: #e67373;
-  border-radius: 12px;
-  border: 2px solid #ffe3e1;
+  font-family: "Courier New", monospace;
+  background-color: #ffb3c6;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.35);
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #ff5c8a;
+  transform: scale(1.07);
 }
