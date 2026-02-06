@@ -189,35 +189,26 @@
   </div>
 
   <script>
-    const text = "Love u🥹  Meet u soon 💖";
-    const el = document.getElementById("typewriter");
-    let i = 0;
+  const text = "Love u🥹  Meet u soon 💖";
+  const el = document.getElementById("typewriter");
+  let i = 0;
 
-    function type() {
-      if (i < text.length) {
-        el.textContent += text[i++];
-        setTimeout(type, 60);
-      }
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i++];
+      setTimeout(type, 60);
     }
-    setTimeout(type, 1500);
+  }
+  setTimeout(type, 1500);
 
-    const herSticker = document.getElementById("herSticker");
-    const herVideo = document.getElementById("herVideo");
+  // 🔊 Audio unlock (required for mobile)
+  const herVideo = document.getElementById("herVideo");
+  document.addEventListener("click", () => {
+    herVideo.muted = false;
+    herVideo.play();
+  }, { once: true });
+</script>
 
-    herSticker.style.display = "none";
-
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        herSticker.style.display = "block";
-        herVideo.play();
-      }, 1000);
-    });
-
-    document.addEventListener("click", () => {
-      herVideo.muted = false;
-      herVideo.play();
-    }, { once: true });
-  </script>
 
 </body>
 </html>
