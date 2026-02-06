@@ -65,25 +65,6 @@
       border-radius: 22px;
     }
 
-    .her-sticker::before {
-      content: '💖';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      font-size: 20px;
-      animation: heartTrail 4s infinite linear;
-    }
-
-    .her-sticker::after {
-      content: '✨💕✨';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 16px;
-      animation: sparkleHer 3s infinite ease-in-out;
-    }
-
     .floating-heart {
       position: fixed;
       font-size: 18px;
@@ -137,6 +118,7 @@
       animation: floatBeat 3.5s infinite ease-in-out;
     }
 
+    /* ANIMATIONS */
     @keyframes slideInHer {
       from { opacity: 0; transform: translateX(80px) scale(0.7) rotate(-10deg); }
       to { opacity: 1; transform: translateX(0) scale(1) rotate(0deg); }
@@ -152,12 +134,8 @@
       50% { box-shadow: 0 25px 50px rgba(255,105,180,0.9); }
     }
 
-    @keyframes heartTrail {
-      to { transform: translate(-30px,-40px) scale(0.5); opacity: 0; }
-    }
-
-    @keyframes sparkleHer {
-      50% { transform: translateX(-50%) scale(1.3); opacity: 0.7; }
+    @keyframes floatAround {
+      to { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
     @keyframes fadeInGlow {
@@ -165,12 +143,19 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    @keyframes floatAround {
-      to { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
-    }
-
     @keyframes floatBeat {
       50% { transform: translateY(-10px); }
+    }
+
+    /* ✅ MOBILE FIX: bottom-right placement */
+    @media (max-width: 600px) {
+      .her-sticker {
+        top: auto;
+        bottom: 18px;
+        right: 14px;
+        width: 110px;
+        height: 150px;
+      }
     }
   </style>
 </head>
@@ -184,7 +169,7 @@
   <div class="overlay"></div>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- HER VIDEO (DELAYED DISPLAY) -->
+  <!-- HER VIDEO -->
   <div class="her-sticker" id="herSticker">
     <video id="herVideo" autoplay muted loop playsinline>
       <source src="her.mp4" type="video/mp4">
@@ -204,7 +189,6 @@
   </div>
 
   <script>
-    // Typing effect
     const text = "Love u🥹  Meet u soon 💖";
     const el = document.getElementById("typewriter");
     let i = 0;
@@ -217,7 +201,6 @@
     }
     setTimeout(type, 1500);
 
-    // HER STICKER APPEARS AFTER 3 SECONDS
     const herSticker = document.getElementById("herSticker");
     const herVideo = document.getElementById("herVideo");
 
@@ -230,7 +213,6 @@
       }, 3000);
     });
 
-    // Mobile audio unlock
     document.addEventListener("click", () => {
       herVideo.muted = false;
       herVideo.play();
