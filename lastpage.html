@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forever 💖</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -27,7 +28,7 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(255, 182, 193, 0.3);
+      background: rgba(255,182,193,0.3);
       z-index: -2;
     }
 
@@ -177,16 +178,16 @@
 <body>
 
   <video autoplay muted loop playsinline class="bg-video">
-    <source src="videos/love.mp4" type="video/mp4" />
+    <source src="videos/love.mp4" type="video/mp4">
   </video>
 
   <div class="overlay"></div>
   <canvas id="particles-canvas"></canvas>
 
-  <!-- HER VIDEO -->
-  <div class="her-sticker">
+  <!-- HER VIDEO (DELAYED DISPLAY) -->
+  <div class="her-sticker" id="herSticker">
     <video id="herVideo" autoplay muted loop playsinline>
-      <source src="her.mp4" type="video/mp4" />
+      <source src="her.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -203,10 +204,11 @@
   </div>
 
   <script>
-    // Typing text
+    // Typing effect
     const text = "Love u🥹  Meet u soon 💖";
     const el = document.getElementById("typewriter");
     let i = 0;
+
     function type() {
       if (i < text.length) {
         el.textContent += text[i++];
@@ -215,8 +217,20 @@
     }
     setTimeout(type, 1500);
 
-    // 🔊 AUDIO UNLOCK (NO UI CHANGE)
+    // HER STICKER APPEARS AFTER 3 SECONDS
+    const herSticker = document.getElementById("herSticker");
     const herVideo = document.getElementById("herVideo");
+
+    herSticker.style.display = "none";
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        herSticker.style.display = "block";
+        herVideo.play();
+      }, 3000);
+    });
+
+    // Mobile audio unlock
     document.addEventListener("click", () => {
       herVideo.muted = false;
       herVideo.play();
